@@ -82,7 +82,7 @@ def allowLogin(request, *args, **kwargs):
 			return render(request, 'login/lecturer_login.html',{"msg1":"Please use this Portal to login!"})
 		
 		if user is not None:
-			login(request, user)
+			auth.login(request, user)			
 			request.session['semail'] = email  
 			return redirect('/student_dashboard/')
 
@@ -110,15 +110,19 @@ def allowLogin(request, *args, **kwargs):
 			return render(request, 'login/login.html',{"msg1":"You are not allowed to use the admin Portal!"})
 		
 		if user is not None:
-			login(request, user)
-			request.session['semail'] = email  
+			auth.login(request, user)
+			request.session['lemail'] = email  
 			return redirect('/lecturer_dashboard/')
 
 		else:
-			return render(request, 'login/login.html',{"msg1":"Incorrect Password!"})		
+			return render(request, 'login/lecturer_login.html',{"msg1":"Incorrect Password!"})		
 		
 	else:
-		return render(request, 'login/login.html',{"msg1":"Unknown error occurred!"})
+		return render(request, 'login/lecturer_login.html',{"msg1":"Unknown error occurred!"})
+
+def logout(request, *args, **kwargs):
+	auth.logout(request)
+	return redirect('/')
 
 def email(request):
 	subject = "greetings"
@@ -200,7 +204,7 @@ def update_student_details(request):
 
 
 def lecturer_dashboard(request, *args, **kwargs):
-	user = request.session['semail']
+	user = request.session['lemail']
 	dep = lecturerDetails.objects.get(email=user)
 	
 	message = chat.objects.filter(sentFrom=user)
@@ -213,12 +217,13 @@ def lecturer_dashboard(request, *args, **kwargs):
 				'messageNo':messageNo,
 				'requests':requests,
 				'registered':registered,
-				'courses':courses
+				'courses':courses,
+				'user':dep,
 			}
 	return render(request, 'login/lecturer_dashboard.html', context)
 
 def lecturer_students(request, *args, **kwargs):
-	user = request.session['semail']
+	user = request.session['lemail']
 	student = studentDetails.objects.all()
 	dep = lecturerDetails.objects.get(email=user)
 	courses = studentsAdviceRequest.objects.filter(department__department=dep.department)	
@@ -229,7 +234,7 @@ def lecturer_students(request, *args, **kwargs):
 	return render(request, 'login/lecturer_students.html', context)
 
 def lecturer_guides(request, *args, **kwargs):
-	user = request.session['semail']
+	user = request.session['lemail']
 	
 	context = {
 				'user':user,					
@@ -237,7 +242,7 @@ def lecturer_guides(request, *args, **kwargs):
 	return render(request, 'login/lecturer_guides.html', context)
 
 def lecturer_getsfeedback(request, *args, **kwargs):
-	user = request.session['semail']
+	user = request.session['lemail']
 	message = chat.objects.filter(sentTo=user)
 	context = {
 				'messages':message,
@@ -265,7 +270,7 @@ def saveCourseAdviceRequest(request):
 
 def save_chat(request):
 	if request.method == 'POST':
-		email = request.session['semail']
+		#email = request.session['semail']
 		sentFrom = request.POST['sent_from']
 		sentTo = request.POST['send_to']
 		message = request.POST['message']
@@ -286,7 +291,7 @@ def save_chat(request):
 			return redirect("/lecturer_guides/")
 
 	if request.method == 'GET':
-		email = request.session['semail']
+		#email = request.session['lemail']
 		sentFrom = request.GET['sent_from']
 		sentTo = request.GET['send_to']
 		message = request.GET['message']

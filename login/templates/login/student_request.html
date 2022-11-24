@@ -12,45 +12,34 @@
     <meta name="description"
         content="Monster Lite is powerful and clean admin dashboard template, inpired from Bootstrap Framework">
     <meta name="robots" content="noindex,nofollow">
-    <title>Students requests</title>
+    <title>Student requests</title>
     <link rel="canonical" href="https://www.wrappixel.com/templates/monster-admin-lite/" />
     <!-- Favicon icon -->
     <link rel="icon" type="image/png" sizes="16x16" href="/static/students/assets/images/logo-icon.png">
     <!-- Custom CSS -->
+    <link href="{% static 'students/assets/plugins/chartist/dist/chartist.min.css' %}" rel="stylesheet">
+    <!-- Custom CSS -->
     <link href="{% static 'students/students-html/css/style.min.css' %}" rel="stylesheet">
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-<![endif]-->
+   
 </head>
 
 <body>
-    <!-- ============================================================== -->
-    <!-- Preloader - style you can find in spinners.css -->
-    <!-- ============================================================== -->
+    
     <div class="preloader">
         <div class="lds-ripple">
             <div class="lds-pos"></div>
             <div class="lds-pos"></div>
         </div>
     </div>
-    <!-- ============================================================== -->
-    <!-- Main wrapper - style you can find in pages.scss -->
-    <!-- ============================================================== -->
-    <div id="main-wrapper" data-layout="vertical" data-navbarbg="skin5" data-sidebartype="full"
+    
+    <div id="main-wrapper" data-layout="vertical" data-navbarbg="skin6" data-sidebartype="full"
         data-sidebar-position="absolute" data-header-position="absolute" data-boxed-layout="full">
-        <!-- ============================================================== -->
-        <!-- Topbar header - style you can find in pages.scss -->
-        <!-- ============================================================== -->
+       
         <header class="topbar" data-navbarbg="skin6">
             <nav class="navbar top-navbar navbar-expand-md navbar-dark">
                 <div class="navbar-header" data-logobg="skin6">
-                    <!-- ============================================================== -->
-                    <!-- Logo -->
-                    <!-- ============================================================== -->
-                    <a class="navbar-brand" href="/student_profile/">
+                    
+                    <a class="navbar-brand" href="/student_dashboard/">
                         <!-- Logo icon -->
                         <b class="logo-icon">
                             <!--You can put here icon as well // <i class="wi wi-sunset"></i> //-->
@@ -61,60 +50,39 @@
                         </b>
                         <!--End Logo icon -->
                         <!-- Logo text -->
-                        <span class="logo-text ">
+                        <span class="logo-text">
                             <!-- dark Logo text -->
-                            Student Admin
-
+                           Student Admin
                         </span>
                     </a>
-                    <!-- ============================================================== -->
-                    <!-- End Logo -->
-                    <!-- ============================================================== -->
-                    <!-- ============================================================== -->
-                    <!-- toggle and nav items -->
-                    <!-- ============================================================== -->
+                   
                     <a class="nav-toggler waves-effect waves-light text-dark d-block d-md-none"
                         href="javascript:void(0)"><i class="ti-menu ti-close"></i></a>
                 </div>
-                <!-- ============================================================== -->
-                <!-- End Logo -->
-                <!-- ============================================================== -->
+                
                 <div class="navbar-collapse collapse bg-success" id="navbarSupportedContent" data-navbarbg="skin5">
                     
-                    <!-- ============================================================== -->
-                    <!-- toggle and nav items -->
-                    <!-- ============================================================== -->
+                   
                     <ul class="navbar-nav me-auto mt-md-0 ">
-                        <!-- ============================================================== -->
-                        <!-- Search -->
-                        <!-- ============================================================== -->
+                       
 
                         
-                    </ul>
-
-                    <!-- ============================================================== -->
-                    <!-- Right side toggle and nav items -->
-                    <!-- ============================================================== -->
+                    </ul>             
+                
                     <ul class="navbar-nav">
-                        <!-- ============================================================== -->
-                        <!-- User profile and search -->
-                        <!-- ============================================================== -->
+                       
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle waves-effect waves-dark" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                <img src="/static/students/assets/images/users/5.jpg" alt="user" class="profile-pic me-2">Welcome {{studentDetails.name|truncatewords:"1"}}
-                            </a>
+                              
+                              <img src="/static/students/assets/images/users/5.jpg" alt="user" class="profile-pic me-2">Welcome {{studentDetails.name|truncatewords:"1"}}
+                            </a> <span><a href="/logout/">logout</a> </span>
                             <ul class="dropdown-menu show" aria-labelledby="navbarDropdown"></ul>
                         </li>
                     </ul>
                 </div>
             </nav>
         </header>
-        <!-- ============================================================== -->
-        <!-- End Topbar header -->
-        <!-- ============================================================== -->
-        <!-- ============================================================== -->
-        <!-- Left Sidebar - style you can find in sidebar.scss  -->
-        <!-- ============================================================== -->
+      
         <aside class="left-sidebar" data-sidebarbg="skin6">
             <!-- Sidebar scroll-->
             <div class="scroll-sidebar">
@@ -143,16 +111,9 @@
             </div>
             <!-- End Sidebar scroll-->
         </aside>
-        <!-- ============================================================== -->
-        <!-- End Left Sidebar - style you can find in sidebar.scss  -->
-        <!-- ============================================================== -->
-        <!-- ============================================================== -->
-        <!-- Page wrapper  -->
-        <!-- ============================================================== -->
+      
         <div class="page-wrapper">
-            <!-- ============================================================== -->
-            <!-- Bread crumb and right sidebar toggle -->
-            <!-- ============================================================== -->
+           
             <div class="page-breadcrumb">
                 <div class="row align-items-center">
                     <div class="col-md-6 col-8 align-self-center">
@@ -169,26 +130,22 @@
                    
                 </div>
             </div>
-            <!-- ============================================================== -->
-            <!-- End Bread crumb and right sidebar toggle -->
-            <!-- ============================================================== -->
-            <!-- ============================================================== -->
-            <!-- Container fluid  -->
-            <!-- ============================================================== -->
+            
             <div class="container-fluid">
-                <!-- ============================================================== -->
+                
                 <!-- Start Page Content -->
-                <!-- ============================================================== -->
+                
                 <div class="row">
                     <!-- column -->
                     <div class="col-sm-12">
                         <div class="card">
                             <div class="card-body">
-                                <h4 class="card-title">Department of Maths & Physics</h4>
+                                <!--<h4 class="card-title">Department of Maths & Physics</h4>-->
                                 {% for message in messages %}
                                 <h6 class="card-subtitle text-danger">{{message}}</code></h6>
                                 {% endfor %}
                                 <div class="table-responsive">
+                                    <h4>Degree corses offered in TUM</h4>
                                     <table class="table user-table no-wrap">
                                         <thead>
                                             <tr>
@@ -203,7 +160,7 @@
                                             <tr>
                                                 <form method="POST" action="/saveCourseAdviceRequest/">
                                                 {% csrf_token %}
-                                                <td><input style="width:20px ;" type="text" value="{{course.id}}" readonly disabled></td>
+                                                <td><input style="width:25px ;" type="text" value="{{course.id}}" readonly disabled></td>
                                                 <td><input style="min-width:450px ;" type="text" name="courseName" value="{{course.course}}" readonly ></td>
                                                 <td><input style="min-width:350px ;" type="text" name="department" value="{{course.department}}" readonly></td>
                                                 <td><button type="submit">Request</button></td>
@@ -218,40 +175,17 @@
                         </div>
                     </div>
                 </div>
-                <!-- ============================================================== -->
-                <!-- End PAge Content -->
-                <!-- ============================================================== -->
-                <!-- ============================================================== -->
-                <!-- Right sidebar -->
-                <!-- ============================================================== -->
-                <!-- .right-sidebar -->
-                <!-- ============================================================== -->
-                <!-- End Right sidebar -->
-                <!-- ============================================================== -->
+               
             </div>
-            <!-- ============================================================== -->
-            <!-- End Container fluid  -->
-            <!-- ============================================================== -->
-            <!-- ============================================================== -->
-            <!-- footer -->
-            <!-- ============================================================== -->
+            
             <footer class="footer text-center">
                 © 2022 Student Admin at <a href="https://www.tum.ac.ke/">Tum</a>
             </footer>
-            <!-- ============================================================== -->
-            <!-- End footer -->
-            <!-- ============================================================== -->
+            
         </div>
-        <!-- ============================================================== -->
-        <!-- End Page wrapper  -->
-        <!-- ============================================================== -->
+        
     </div>
-    <!-- ============================================================== -->
-    <!-- End Wrapper -->
-    <!-- ============================================================== -->
-    <!-- ============================================================== -->
-    <!-- All Jquery -->
-    <!-- ============================================================== -->
+   
     <script src="/static/students/assets/plugins/jquery/dist/jquery.min.js"></script>
     <!-- Bootstrap tether Core JavaScript -->
     <script src="/static/students/assets/plugins/bootstrap/dist/js/bootstrap.bundle.min.js"></script>    

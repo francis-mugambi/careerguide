@@ -1,7 +1,4 @@
 {% load static %}
-{% if user.is_authenticated %}
-{% include 'login/userdata.php' %}
-{% else %}
 <!DOCTYPE html>
 <html dir="ltr" lang="en">
 
@@ -23,18 +20,11 @@
     <link href="{% static 'students/assets/plugins/chartist/dist/chartist.min.css' %}" rel="stylesheet">
     <!-- Custom CSS -->
     <link href="{% static 'students/students-html/css/style.min.css' %}" rel="stylesheet">
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-<![endif]-->
+   
 </head>
 
 <body>
-    <!-- ============================================================== -->
-    <!-- Preloader - style you can find in spinners.css -->
-    <!-- ============================================================== -->
+    
     <div class="preloader">
         <div class="lds-ripple">
             <div class="lds-pos"></div>
@@ -85,7 +75,7 @@
                             <a class="nav-link dropdown-toggle waves-effect waves-dark" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                               
                               <img src="/static/students/assets/images/users/5.jpg" alt="user" class="profile-pic me-2">Welcome {{studentDetails.name|truncatewords:"1"}}
-                            </a>
+                            </a> <span><a href="/logout/">logout</a> </span>
                             <ul class="dropdown-menu show" aria-labelledby="navbarDropdown"></ul>
                         </li>
                     </ul>
@@ -270,4 +260,3 @@
     <script src="js/pages/dashboards/dashboard1.js"></script>
 </body>
 </html>
-{% endif %}

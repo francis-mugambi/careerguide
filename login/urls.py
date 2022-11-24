@@ -24,5 +24,6 @@ urlpatterns = [
 
     path('save-chat/', views.save_chat),
     path('student-reply/', views.student_reply),
+    path('logout/', views.logout),
     
 ]
