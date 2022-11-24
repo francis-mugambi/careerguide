@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="{% static 'assets/css/create-account-login.css' %}">
     <link rel="stylesheet" href="{% static 'assets/css/owl.css' %}">
     <link rel="stylesheet" href="{% static 'assets/css/lightbox.css' %}">
-     <link href="{% static 'https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900' %}" rel="stylesheet">
+     <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900" rel="stylesheet">
 
  <!-- Sub Header Start -->
   <div class="sub-header" id="up">
@@ -27,7 +27,9 @@
         <div class="col-lg-4 col-sm-4">
           <div class="right-icons">
             <ul>
-              <li onclick="document.getElementById('id01').style.display='block'" style="width:auto;"><a href="javascript:void(0)">Login</a></li>
+            <li>
+            <a href="javascript:void(0)"><a href="/lecturer-login/">Admin Login</a></a></li>
+              <li onclick="document.getElementById('id01').style.display='block'" style="width:auto;"><a href="javascript:void(0)">Student Login</a></li>
               <li><a href="https://www.facebook.com/groups/160717846234183" target="_blank"><i class="fa fa-facebook"></i></a></li>
               <li><a href="#"><i class="fa fa-twitter"></i></a></li>
               <li><a href="#"><i class="fa fa-behance"></i></a></li>
@@ -83,6 +85,7 @@
   <form class="modal-content1 animate" action="/allowLogin/" method="post" autocomplete="off">
     {% csrf_token %}
     <div class="imgcontainer">
+    <h4>Student Portal</h4>
       <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
       <img src="{% static 'assets/images/img_avatar2.png' %}" alt="Avatar" class="avatar"><br>
       <li onclick="document.getElementById('id011').style.display='block'" style="width:auto;"><a href="javascript:void(0)">Don't have an acount? create</a></li>

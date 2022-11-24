@@ -1,0 +1,52 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Login</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="robots" content="noindex">
+    <link rel="icon" type="image/png" sizes="16×16" href="{% static 'assets/images/pages.png' %}" />
+    <meta name="author" content="Francis Mugambi">
+
+    <meta name="description" content="">
+    
+  </head>
+<body>
+ <link rel="stylesheet" href="{% static 'assets/css/create-account-login.css' %}">
+
+<div id="id01" class="modal">
+  <form class="modal-content1 animate" action="/allowLogin/" method="GET" autocomplete="off">
+    {% csrf_token %}
+    <div class="imgcontainer">
+      <h3>Lecturer Portal</h3>
+      <span title="Close Modal"><a style="font-size: 40px; float: right; margin: -20px 10px 0 0; text-decoration: none; font-weight:bold;" href="/">&times;</a></span>
+      <img src="{% static 'assets/images/img_avatar2.png' %}" alt="Avatar" class="avatar"><br>
+      <!--<span onclick="document.getElementById('id011').style.display='block'" style="width:auto;">
+        <a style="text-decoration: none; color:seagreen;" href="/register">Don't have an acount? Signup</a></span><br><br>-->
+      <span style="color: red; font-weight:bold;">{{msg1}}</span>
+    </div>
+
+    <div class="container">
+      <label for="email"><b>Email</b></label>
+      <input type="email" placeholder="Enter Email" name="email" required autofocus="on" >
+
+      <label for="password"><b>Password</b></label>
+      <input type="password" placeholder="Enter Password" name="password" required>
+        
+      <button type="submit">Login</button>
+      <label>
+        <input type="checkbox" checked="checked" name="remember"> Remember me
+      </label>
+    </div>
+
+    <div class="container" style="background-color:#f1f1f1; border-radius: 20px;">
+      <button type="button" class="cancelbtn"><a style="text-decoration:none; color: white;" href="/">Cancel</a></button>
+      <span class="psw">Forgot <a href="#">password?</a></span>
+    </div>
+  </form>
+</div>
+</body>
+</html>
+

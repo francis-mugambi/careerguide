@@ -85,6 +85,9 @@
     </div>
 
     <div class="container">
+   <!--<label for="email"><b>Username</b></label>
+      <input type="text" placeholder="Enter Username" name="username" autofocus required >-->
+      
       <label for="email"><b>Email</b></label>
       <input type="email" placeholder="Enter your Email" name="email" autofocus required >
 

@@ -20,6 +20,7 @@
   <form class="modal-content1 animate" action="/allowLogin/" method="post" autocomplete="off">
     {% csrf_token %}
     <div class="imgcontainer">
+      <h3>Student Portal</h3>
       <span title="Close Modal"><a style="font-size: 40px; float: right; margin: -20px 10px 0 0; text-decoration: none; font-weight:bold;" href="/">&times;</a></span>
       <img src="{% static 'assets/images/img_avatar2.png' %}" alt="Avatar" class="avatar"><br>
       <span onclick="document.getElementById('id011').style.display='block'" style="width:auto;"><a style="text-decoration: none; color:seagreen;" href="/register">Don't have an acount? Signup</a></span><br><br>
