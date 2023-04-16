@@ -1,4 +1,4 @@
-# careerguide web based application
+# Careerguide Web Based Application
 This is a careerguide website. 
 The website includes a a system where students can login and request for career.
 advices from the career advicers within the university based on departments.
